@@ -216,7 +216,7 @@ For My Favourite Person 🌸
 
 <button onclick="show()">🎁 Open Your Surprise</button>
 
-<audio id="music" loop>
+<audio id="music" loop playsinline preload="auto">
 
 <source src="music.mp3" type="audio/mpeg">
 
@@ -303,7 +303,15 @@ let music=document.getElementById("music");
 
 music.volume=0.2;
 
-music.play().catch(function(e){});
+music.play().then(()=>{
+
+console.log("Music Started");
+
+}).catch((error)=>{
+
+console.log(error);
+
+});
 
 }
 
