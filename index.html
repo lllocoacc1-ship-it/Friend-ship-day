@@ -301,11 +301,28 @@ behavior:"smooth"
 
 let music=document.getElementById("music");
 
-music.volume=0.5;
+
+music.volume=0;
 
 music.play();
 
+let volume = 0;
+
+let fade = setInterval(()=>{
+
+if(volume < 0.5){
+
+volume += 0.01;
+
+music.volume = volume;
+
+}else{
+
+clearInterval(fade);
+
 }
+
+},300);
 
 </script>
 
