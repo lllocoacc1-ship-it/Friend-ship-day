@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Friendship Day ❤️</title>
+<title>Kaju Katli ❤️ | A Special Surprise</title>
 
 <style>
 
@@ -170,6 +170,22 @@ font-weight:600;
 
 }
 
+.last{
+
+margin-top:40px;
+padding:25px;
+background:linear-gradient(135deg,#fff0f5,#ffe0ec);
+border-radius:20px;
+color:#7b1e4a;
+
+}
+
+.last h2{
+
+color:#d81b60;
+
+}
+
 @keyframes fadeIn{
 
 from{
@@ -279,6 +295,24 @@ Stay Happy Always ❤️
 
 </div>
 
+<div class="last">
+
+<h2>💌 One Last Thing ❤️</h2>
+
+<p>
+No matter how much we fight,<br>
+you will always be my favourite person. 🫶🏻
+
+<br><br>
+
+Thank you for being a beautiful part of my life. 🌸
+
+</p>
+
+<button onclick="surprise()">🎁 Tiny Surprise</button>
+
+</div>
+
 </div>
 
 </div>
@@ -323,6 +357,44 @@ clearInterval(fade);
 }
 
 },300);
+
+function surprise(){
+
+alert("❤️ You are my favourite memory maker ❤️");
+
+firework();
+
+}
+
+
+function firework(){
+
+for(let i=0;i<30;i++){
+
+let star=document.createElement("span");
+
+star.innerHTML="✨";
+
+star.style.position="fixed";
+star.style.left="50%";
+star.style.top="50%";
+star.style.fontSize="25px";
+
+star.style.transform=
+`translate(${Math.random()*400-200}px,${Math.random()*400-200}px)`;
+
+document.body.appendChild(star);
+
+
+setTimeout(()=>{
+
+star.remove();
+
+},1000);
+
+}
+
+}
 
 }
 
