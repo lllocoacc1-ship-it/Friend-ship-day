@@ -115,6 +115,7 @@ background:rgba(255,255,255,.92);
 backdrop-filter:blur(10px);
 padding:25px;
 border-radius:20px;
+animation:fadeIn .8s ease;
 
 }
 
@@ -148,6 +149,15 @@ margin-top:30px;
 width:100%;
 border-radius:18px;
 box-shadow:0 10px 20px rgba(0,0,0,.2);
+transition:.4s ease;
+cursor:pointer;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+box-shadow:0 15px 30px rgba(0,0,0,.3);
 
 }
 
@@ -160,6 +170,19 @@ font-weight:600;
 
 }
 
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
 </style>
 
 </head>
@@ -266,11 +289,21 @@ function show(){
 
 document.getElementById("card").style.display="block";
 
+document.querySelector("button").style.display="none";
+
+window.scrollTo({
+
+top:document.getElementById("card").offsetTop,
+
+behavior:"smooth"
+
+});
+
 let music=document.getElementById("music");
 
 music.volume=0.2;
 
-music.play();
+music.play().catch(function(e){});
 
 }
 
