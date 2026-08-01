@@ -400,19 +400,33 @@ Stay Happy Always ❤️
 
 <div class="last">
 
-<h2>💌 One Last Thing ❤️</h2>
+...
 
-<p>
-No matter how much we fight,<br>
-you will always be my favourite person. 🫶🏻
+<button onclick="surprise()">🎁 Tiny Surprise</button>
 
 <br><br>
 
-Thank you for being a beautiful part of my life. 🌸
+<div id="finalChoice" style="display:none;">
 
+<h2>💖 Final Challenge</h2>
+
+<p>Only one choice is allowed... 😌</p>
+
+<button id="kissBtn" onclick="kiss()">
+💋 Kiss Me
+</button>
+
+<button id="hugBtn"
+onmouseover="moveHug()"
+ontouchstart="moveHug()">
+🤗 Hug Me
+</button>
+
+<p id="funny"
+style="margin-top:20px;color:#d81b60;font-weight:bold;">
 </p>
 
-<button onclick="surprise()">🎁 Tiny Surprise</button>
+</div>
 
 </div>
 
@@ -524,6 +538,8 @@ setTimeout(()=>{
 
 msg.remove();
 
+document.getElementById("finalChoice").style.display="block";
+
 },4000);
 
 }
@@ -587,8 +603,317 @@ Now pretend you never saw this. 👀😂`);
 
 }
 
+function heartBlast(){
+
+for(let i=0;i<80;i++){
+
+let heart=document.createElement("span");
+
+let emoji=["❤️","💖","💕","💗","✨","🌸"];
+
+heart.innerHTML=emoji[Math.floor(Math.random()*emoji.length)];
+
+heart.style.position="fixed";
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.top="100%";
+
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+heart.style.pointerEvents="none";
+
+heart.style.transition="3s linear";
+
+heart.style.zIndex="99999";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.style.top="-10%";
+
+heart.style.transform=
+`rotate(${Math.random()*360}deg)`;
+
+heart.style.opacity="0";
+
+},50);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},3200);
+
+}
+
+}
+
+function ending(){
+
+let end=document.createElement("div");
+
+end.style.position="fixed";
+end.style.top="0";
+end.style.left="0";
+end.style.width="100%";
+end.style.height="100%";
+end.style.background="linear-gradient(135deg,#ffe6f1,#fff,#ffe6f8)";
+end.style.display="flex";
+end.style.flexDirection="column";
+end.style.justifyContent="center";
+end.style.alignItems="center";
+end.style.textAlign="center";
+end.style.zIndex="999999";
+
+end.innerHTML=`
+
+<h1 style="color:#d81b60;">
+❤️
+</h1>
+
+<h2 style="color:#d81b60;">
+You deserve both.
+</h2>
+
+<div id="teddyArea"
+style="
+position:relative;
+width:320px;
+height:120px;
+margin-top:30px;
+overflow:hidden;
+">
+
+<div id="bear1"
+style="
+position:absolute;
+left:10px;
+font-size:70px;
+transition:2s;
+">
+🧸
+</div>
+
+<div id="bear2"
+style="
+position:absolute;
+right:10px;
+font-size:70px;
+transition:2s;
+">
+🐻
+</div>
+
+</div>
+
+<p style="margin-top:30px;
+font-size:22px;
+color:#7b1e4a;">
+
+The End...
+
+<br><br>
+
+or maybe...
+
+<br><br>
+
+The Beginning ❤️✨
+
+</p>
+
+`;
+
+document.body.appendChild(end);
+
+setTimeout(()=>{
+
+document.getElementById("bear1").style.left="110px";
+
+document.getElementById("bear2").style.right="110px";
+
+setTimeout(()=>{
+
+document.getElementById("bear1").innerHTML="🧸🫂🐻";
+
+document.getElementById("bear2").style.display="none";
+
+heartRain();
+
+},2200);
+
+},1800);
+
+}
+
+function heartRain(){
+
+for(let i=0;i<120;i++){
+
+let h=document.createElement("span");
+
+let emoji=["❤️","💕","💖","💗","🌸","✨"];
+
+h.innerHTML=emoji[Math.floor(Math.random()*emoji.length)];
+
+h.style.position="fixed";
+
+h.style.left=Math.random()*100+"%";
+
+h.style.top="-10%";
+
+h.style.fontSize=(20+Math.random()*18)+"px";
+
+h.style.pointerEvents="none";
+
+h.style.transition="5s linear";
+
+h.style.zIndex="999999";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+
+h.style.top="110%";
+
+h.style.transform=`rotate(${Math.random()*360}deg)`;
+
+},50);
+
+setTimeout(()=>{
+
+h.remove();
+
+},5200);
+
+}
+
+}
+
+let tries=0;
+
+function moveHug(){
+
+let btn=document.getElementById("hugBtn");
+
+btn.style.position="relative";
+
+btn.style.left=(Math.random()*200-100)+"px";
+
+btn.style.top=(Math.random()*120-60)+"px";
+
+let text=[
+
+"🤭 Nice Try...",
+
+"😂 Nope...",
+
+"👀 Almost...",
+
+"🙈 Too Slow...",
+
+"🤪 Catch me first..."
+
+];
+
+document.getElementById("funny").innerHTML=text[tries%text.length];
+
+tries++;
+
+if(tries==5){
+
+setTimeout(()=>{
+
+alert(`😂
+
+Okay Okay...
+
+I know what you're trying to do.
+
+But...
+
+Not happening. 😌`);
+
+},300);
+
+}
+
+}
+
+function kiss(){
+
+if(navigator.vibrate){
+
+navigator.vibrate(200);
+
+}
+
+let box=document.createElement("div");
+
+box.style.position="fixed";
+box.style.top="50%";
+box.style.left="50%";
+box.style.transform="translate(-50%,-50%)";
+box.style.background="white";
+box.style.color="#d81b60";
+box.style.padding="30px";
+box.style.borderRadius="20px";
+box.style.fontSize="22px";
+box.style.lineHeight="1.8";
+box.style.boxShadow="0 10px 30px rgba(0,0,0,.2)";
+box.style.zIndex="99999";
+
+document.body.appendChild(box);
+
+let lines=[
+
+"😘",
+
+"Virtual Kiss Delivered...",
+
+"❤️",
+
+"Loading...",
+
+"100%",
+
+"Mission Successful ❤️"
+
+];
+
+let i=0;
+
+let typing=setInterval(()=>{
+
+box.innerHTML+=lines[i]+"<br>";
+
+i++;
+
+if(i==lines.length){
+
+clearInterval(typing);
+
+heartBlast();
+
+setTimeout(()=>{
+
+box.remove();
+
+ending();
+
+},4500);
+
+}
+
+},900);
+
+}
+
 </script>
 
 </body>
 
 </html>
+
