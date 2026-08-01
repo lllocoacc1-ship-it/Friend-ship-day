@@ -362,9 +362,30 @@ clearInterval(fade);
 
 function surprise(){
 
-alert("❤️ You are my favourite memory maker ❤️");
-
 firework();
+
+let msg = document.createElement("div");
+
+msg.innerHTML="❤️ You are my favourite memory maker ❤️";
+
+msg.style.position="fixed";
+msg.style.top="50%";
+msg.style.left="50%";
+msg.style.transform="translate(-50%,-50%)";
+msg.style.background="white";
+msg.style.color="#d81b60";
+msg.style.padding="25px";
+msg.style.borderRadius="20px";
+msg.style.fontSize="20px";
+msg.style.zIndex="999";
+
+document.body.appendChild(msg);
+
+setTimeout(()=>{
+
+msg.remove();
+
+},3000);
 
 }
 
