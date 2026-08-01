@@ -274,27 +274,27 @@ box-shadow:0 8px 20px rgba(0,0,0,.08);
 
 <div class="left">
 
-🧸 Ukadicha Modak<br>
+🧸 Omiiii<br>
 Happy Friendship Day ❤️
 </div>
 
 <div class="right">
-💖 Kaju Katli<br>
+💖 Anuuuu<br>
 Awww...🥹
 </div>
 
 <div class="left">
-🧸 Ukadicha Modak<br>
+🧸 Omiiii<br>
 I made something for you 👀
 </div>
 
 <div class="right">
-💖 Kaju Katli<br>
+💖 Anuuuu<br>
 Really? 😭✨
 </div>
 
 <div class="left">
-🧸 Ukadicha Modak<br>
+🧸 Omiiii<br>
 Tap below 👇
 </div>
 
@@ -663,6 +663,66 @@ heart.remove();
 
 }
 
+function photoKiss(){
+
+let screen=document.createElement("div");
+
+screen.style.position="fixed";
+screen.style.top="0";
+screen.style.left="0";
+screen.style.width="100%";
+screen.style.height="100%";
+screen.style.background="rgba(0,0,0,.75)";
+screen.style.display="flex";
+screen.style.flexDirection="column";
+screen.style.justifyContent="center";
+screen.style.alignItems="center";
+screen.style.zIndex="999999";
+
+screen.innerHTML=`
+
+<img src="photo4.jpg"
+style="
+width:85%;
+max-width:380px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(255,255,255,.25);
+">
+
+<h2 style="
+margin-top:25px;
+color:white;
+line-height:1.8;
+">
+
+😘
+
+<br><br>
+
+A tiny kiss...
+
+<br>
+
+with lots of love ❤️
+
+</h2>
+
+`;
+
+document.body.appendChild(screen);
+
+heartBlast();
+
+setTimeout(()=>{
+
+screen.remove();
+
+ending();
+
+},3500);
+
+}
+
 function ending(){
 
 let end=document.createElement("div");
@@ -889,15 +949,13 @@ let lines=[
 
 "😘",
 
-"Virtual Kiss Delivered...",
+"Close your eyes...",
 
-"❤️",
+"3...",
 
-"Loading...",
+"2...",
 
-"100%",
-
-"Mission Successful ❤️"
+"1..."
 
 ];
 
@@ -919,7 +977,7 @@ setTimeout(()=>{
 
 box.remove();
 
-ending();
+photoKiss();
 
 },4500);
 
