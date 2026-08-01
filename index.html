@@ -396,24 +396,34 @@ for(let i=0;i<30;i++){
 
 let star=document.createElement("span");
 
-star.innerHTML="✨";
+let emoji=["✨","💖","💕","❤️","🌸"];
+
+star.innerHTML=emoji[Math.floor(Math.random()*emoji.length)];
 
 star.style.position="fixed";
-star.style.left="50%";
-star.style.top="50%";
-star.style.fontSize="25px";
-
-star.style.transform=
-`translate(${Math.random()*400-200}px,${Math.random()*400-200}px)`;
+star.style.left=(45+Math.random()*10)+"%";
+star.style.top="70%";
+star.style.fontSize=(20+Math.random()*15)+"px";
+star.style.pointerEvents="none";
+star.style.zIndex="9999";
+star.style.transition="2.5s ease-out";
 
 document.body.appendChild(star);
 
+setTimeout(()=>{
+
+star.style.transform=
+`translate(${Math.random()*300-150}px,-${300+Math.random()*200}px) scale(1.5)`;
+
+star.style.opacity="0";
+
+},50);
 
 setTimeout(()=>{
 
 star.remove();
 
-},1000);
+},2600);
 
 }
 
