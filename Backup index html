@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Friendship Day ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#ffd6e7,#ffeef7,#e7d7ff);
+overflow-x:hidden;
+color:white;
+text-align:center;
+
+}
+
+/* Floating Hearts */
+
+.hearts{
+
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+top:0;
+left:0;
+
+}
+
+.hearts span{
+
+position:absolute;
+bottom:-50px;
+font-size:22px;
+animation:float 8s linear infinite;
+opacity:.8;
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) scale(1);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) scale(1.5);
+opacity:0;
+}
+
+}
+
+.container{
+
+padding:30px;
+
+}
+
+h1{
+
+font-size:40px;
+margin-top:30px;
+color:#d81b60;
+
+}
+
+.sub{
+
+font-size:20px;
+margin-top:10px;
+color:#7b1e4a;
+
+}
+
+button{
+
+margin-top:35px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:50px;
+background:#ff4f8b;
+color:white;
+cursor:pointer;
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+.card{
+
+display:none;
+margin-top:35px;
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:20px;
+animation:fadeIn .8s ease;
+
+}
+
+.card h2{
+
+margin-bottom:20px;
+color:#c2185b;
+
+}
+
+.card p{
+
+line-height:1.8;
+color:#4a2c2a;
+font-size:18px;
+font-weight:500;
+
+}
+
+.gallery{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:30px;
+
+}
+
+.gallery img{
+
+width:100%;
+border-radius:18px;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+transition:.4s ease;
+cursor:pointer;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+box-shadow:0 15px 30px rgba(0,0,0,.3);
+
+}
+
+.footer{
+
+margin:40px 0;
+font-size:20px;
+color:#8e2455;
+font-weight:600;
+
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="hearts">
+
+<span style="left:5%;animation-delay:0s;">❤️</span>
+<span style="left:15%;animation-delay:2s;">💕</span>
+<span style="left:28%;animation-delay:4s;">💖</span>
+<span style="left:40%;animation-delay:1s;">🌸</span>
+<span style="left:55%;animation-delay:3s;">💗</span>
+<span style="left:68%;animation-delay:5s;">💕</span>
+<span style="left:82%;animation-delay:2s;">❤️</span>
+<span style="left:93%;animation-delay:4s;">💖</span>
+
+</div>
+
+<div class="container">
+
+<h1>Happy Friendship Day 💖</h1>
+
+<div class="sub">
+
+For My Favourite Person 🌸
+
+<h2>Kaju Katli ❤️</h2>
+
+</div>
+
+<button onclick="show()">🎁 Open Your Surprise</button>
+
+<audio id="music" loop playsinline preload="auto">
+
+<source src="music.m4a" type="audio/mp4">
+
+</audio>
+
+<div class="card" id="card">
+
+<h2>💌 Dear Kaju Katli 💖😘</h2>
+
+<p>
+
+Thanks meri bakwaas sunne,
+mujhe tolerate karne aur
+bina reason ke hasane ke liye. 😂💕
+
+<br><br>
+
+Har random moment
+tumhare saath special hai. 💖
+
+<br><br>
+
+Hamesha aise hi meri life ka
+free entertainment bani rehna. 🤪🫶
+
+<br><br>
+
+Happy Friendship Day! 🌸🫂🫶🏻😘
+
+<br><br>
+
+<b>
+
+With Lots Of Love ❤️
+
+<br>
+
+Ukadicha Modak
+
+</b>
+
+</p>
+
+<div class="gallery">
+
+<img src="photo1.jpg" id="photo1">
+<img src="photo2.jpg" id="photo2">
+<img src="photo3.jpg" id="photo3">
+<img src="photo4.jpg" id="photo4">
+
+</div>
+
+<div class="footer">
+
+🌸 Thank you for being YOU. 🌸
+
+<br><br>
+
+Stay Happy Always ❤️
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function show(){
+
+document.getElementById("card").style.display="block";
+
+document.querySelector("button").style.display="none";
+
+window.scrollTo({
+
+top:document.getElementById("card").offsetTop,
+
+behavior:"smooth"
+
+});
+
+let music=document.getElementById("music");
+
+
+music.volume=0;
+
+music.play();
+
+let volume = 0;
+
+let fade = setInterval(()=>{
+
+if(volume < 0.5){
+
+volume += 0.01;
+
+music.volume = volume;
+
+}else{
+
+clearInterval(fade);
+
+}
+
+},300);
+
+}
+
+</script>
+
+</body>
+
+</html>
